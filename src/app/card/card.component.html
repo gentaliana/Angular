@@ -1,0 +1,43 @@
+<div class="card">
+  <h2
+    [ngStyle]="{
+      color: card.title.length < 5 ? 'black' : 'red',
+      fontWeight: card.title.length < 7 ? 'normal' : 'bold'
+    }"
+  >
+    {{ index }} {{ card.title }}
+  </h2>
+  <p
+    class="text"
+    [class.blue]="textColor === 'blue'"
+    [class.green]="textColor === 'green'"
+    [class.red]="textColor === 'red'"
+  >
+    {{ text }}
+  </p>
+  <!-- <p class="text" [ngClass]="{
+    blue: textColor === 'blue',
+    green: textColor === 'green',
+    red: textColor === 'red'
+  }">{{ text }}</p> -->
+  <div class="buttons">
+    <button (click)="textColor = 'blue'">Set blue</button>
+    <button (click)="textColor = 'green'">Set green</button>
+    <button (click)="textColor = 'red'">Set red</button>
+  </div>
+  <div class="buttons">
+    <button (click)="changeTitle()">Change title</button>
+    <button (click)="card.title = 'Inline title'">Chamge title inline</button>
+  </div>
+  <!-- <div>
+    <input type="text" #myInput (input)="onInput(myInput.value)" [value]="title">
+  </div> -->
+  <div><strong>{{cardDate | date: 'dd MMMM yyyyг. HH:mm:ss':null:'ru' }}</strong></div>
+  <div>
+    <input
+      type="text"
+      [(ngModel)]="card.title"
+      (ngModelChange)="chageHadler()"
+    />
+  </div>
+</div>
