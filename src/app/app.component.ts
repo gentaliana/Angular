@@ -42,8 +42,4 @@ export class AppComponent implements OnInit {
     this.nestedDataSource.data = null;
     this.nestedDataSource.data = data;
   }
-
-
-
-
 }

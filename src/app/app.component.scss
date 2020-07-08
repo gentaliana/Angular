@@ -9,11 +9,17 @@
   list-style-type: none;
 }
 
-.mat-tree-position {
-  position: fixed;
-  top: 5%;
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
-.descriptionText {
-  color: hsl(0, 0%, 100%);
+.styleTree {
+  width: 50%;
+}
+
+.descriptionStyle {
+  width: 50%;
+  color: white;
 }
