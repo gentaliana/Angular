@@ -10,10 +10,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DescriptionComponent } from './description/description.component';
 
 registerLocaleData(localeRu, 'ru');
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DescriptionComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

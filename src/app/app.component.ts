@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  private _getChildren = (node: TreeData) => observableOf(node.Children);
+    private _getChildren = (node: TreeData) => observableOf(node.Children);
   hasNestedChild = (_: number, nodeData: TreeData) =>
     nodeData.Children.length > 0;
 
