@@ -1,23 +1,47 @@
-<div class="container">
-  <h1>Hello Angular</h1>
-  <hr />
-  <button (click)="toggleCards()">Toggle Cards</button>
-  <hr />
-  <!-- <app-form></app-form> -->
-  <div *ngIf="togle; else noCards">
-    <app-card
-      *ngFor="let iterCard of cards; let idx = index"
-      [card]="iterCard"
-      [index]="idx + 1"
+<div>
+  <div>
+    <mat-tree
+      [dataSource]="nestedDataSource"
+      [treeControl]="nestedTreeControl"
+      class="example-tree mat-tree-position"
     >
-    </app-card>
-  </div>
-  <ng-template #noCards>
-    <p>Cards are hidden!</p>
-    <mat-tree [dataSource]="nestedDataSource" [treeControl]="treeControl">
-      <mat-tree-node> parent node </mat-tree-node>
-      <mat-tree-node> -- child node1 </mat-tree-node>
-      <mat-tree-node> -- child node2 </mat-tree-node>
+      <!-- Without Children -->
+      <mat-tree-node *matTreeNodeDef="let node">
+        <li class="mat-tree-node">
+          <button mat-icon-button disabled></button>
+          {{ node.Name }}
+        </li>
+      </mat-tree-node>
+
+      <!-- With Children -->
+      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasNestedChild">
+        <li>
+          <div class="mat-tree-node">
+            <button
+              mat-icon-button
+              matTreeNodeToggle
+              [attr.aria-label]="'toggle ' + node.Name"
+            >
+              <mat-icon class="mat-icon-rtl-mirror">
+                {{
+                  nestedTreeControl.isExpanded(node)
+                    ? "expand_more"
+                    : "chevron_right"
+                }}
+              </mat-icon>
+            </button>
+            {{ node.Name }}
+          </div>
+          <ul
+            [class.example-tree-invisible]="!nestedTreeControl.isExpanded(node)"
+          >
+            <ng-container matTreeNodeOutlet></ng-container>
+          </ul>
+        </li>
+      </mat-nested-tree-node>
     </mat-tree>
-  </ng-template>
+  </div>
+  <div class="descriptionText">
+    test
+  </div>
 </div>
