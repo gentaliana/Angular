@@ -11,10 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DescriptionComponent } from './description/description.component';
+import { AppTreeComponent } from './app-tree/app-tree.component';
 
 registerLocaleData(localeRu, 'ru');
 @NgModule({
-  declarations: [AppComponent, DescriptionComponent],
+  declarations: [AppComponent, DescriptionComponent, AppTreeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
