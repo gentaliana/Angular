@@ -1,8 +1,8 @@
 <div class="wrapper">
   <div class="styleTree">
-<app-app-tree></app-app-tree>
+    <app-app-tree (onChanged)="onChanged($event)"></app-app-tree>
   </div>
   <div class="descriptionStyle">
-    <app-description></app-description>
+    <app-description [textDescription]="description"></app-description>
   </div>
 </div>

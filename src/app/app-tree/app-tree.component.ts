@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TreeDataService } from '../service/tree-data.service';
 import { TreeData } from '../service/tree-data.model';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
@@ -17,9 +17,16 @@ export class FileNode {
   styleUrls: ['./app-tree.component.scss'],
 })
 export class AppTreeComponent implements OnInit {
-
   nestedTreeControl: NestedTreeControl<TreeData>;
   nestedDataSource: MatTreeNestedDataSource<TreeData>;
+
+  @Output() onChanged = new EventEmitter<string>();
+  // change(node: TreeData) {
+  //   this.onChanged.emit(node.Description);
+  // }
+  change(text: string) {
+    this.onChanged.emit(text);
+  }
 
   constructor(private dataService: TreeDataService) {}
 
