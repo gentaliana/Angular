@@ -20,12 +20,10 @@ export class AppTreeComponent implements OnInit {
   nestedTreeControl: NestedTreeControl<TreeData>;
   nestedDataSource: MatTreeNestedDataSource<TreeData>;
 
-  @Output() onChanged = new EventEmitter<string>();
-  // change(node: TreeData) {
-  //   this.onChanged.emit(node.Description);
-  // }
-  change(text: string) {
-    this.onChanged.emit(text);
+  @Output() onChanged = new EventEmitter<{ text: string; textName: string }>();
+
+  change({ text, name }) {
+    this.onChanged.emit({ text, textName: name });
   }
 
   constructor(private dataService: TreeDataService) {}

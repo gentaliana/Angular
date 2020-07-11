@@ -12,12 +12,17 @@ export class FileNode {
 })
 export class AppComponent implements OnInit {
   description: string = '';
+  name: string = '';
 
   constructor() {}
 
   ngOnInit() {}
 
-  onChanged(text: string) {
+  onChanged({ text, textName }) {
+    console.log({ textName });
+    console.log({ text });
+
     this.description = text;
+    this.name = textName;
   }
 }
