@@ -2,6 +2,8 @@ export interface TreeData {
   Id: number;
   Name: string;
   Description: string;
+  Country: string;
+  Game: string;
   Children: TreeData[];
 }
 

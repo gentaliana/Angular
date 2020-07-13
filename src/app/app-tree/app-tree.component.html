@@ -7,7 +7,7 @@
   <mat-tree-node *matTreeNodeDef="let node">
     <div
       class="mat-tree-node matTreeStyle"
-      (click)="change({ text: node.Description, name: node.Name })"
+      (click)="change({ text: node.Description, name: node.Name, country: node.Country, game: node.Game  })"
     >
       <button mat-icon-button disabled></button>
       {{ node.Name }}
@@ -19,7 +19,7 @@
     <li>
       <div
         class="mat-tree-node matTreeStyle"
-        (click)="change({ text: node.Description, name: node.Name })"
+        (click)="change({ text: node.Description, name: node.Name, country: node.Country, game: node.Game })"
       >
         <button
           mat-icon-button

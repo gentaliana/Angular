@@ -13,16 +13,17 @@ export class FileNode {
 export class AppComponent implements OnInit {
   description: string = '';
   name: string = '';
+  country: string = '';
+  game: string = '';
 
   constructor() {}
 
   ngOnInit() {}
 
-  onChanged({ text, textName }) {
-    console.log({ textName });
-    console.log({ text });
-
+  onChanged({ text, textName, textCountry, textGame }) {
     this.description = text;
     this.name = textName;
+    this.country = textCountry;
+    this.game = textGame;
   }
 }
